@@ -57,8 +57,9 @@ main {
 
 .site-header {
   width: min(1180px, calc(100% - 64px));
-  height: 96px;
+  height: 56px;
   margin: 0 auto;
+  padding-inline: 12px;
   border-bottom: 1px solid var(--line);
   display: flex;
   align-items: center;
@@ -69,8 +70,11 @@ main {
   font-family: var(--serif);
   font-size: 1.45rem;
   font-weight: 700;
+  line-height: 1;
   text-decoration: none;
   letter-spacing: -0.04em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .wordmark-dot {
@@ -96,9 +100,8 @@ nav a:hover {
 
 .hero {
   width: min(1180px, calc(100% - 64px));
-  min-height: 720px;
   margin: 0 auto;
-  padding: 94px 0 90px;
+  padding: 60px 0 90px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 220px;
   gap: clamp(48px, 7vw, 92px);
@@ -122,20 +125,12 @@ p {
   margin-top: 0;
 }
 
-h1 {
-  margin-bottom: 24px;
-  font-family: var(--serif);
-  font-size: clamp(3.6rem, 7.2vw, 6rem);
-  font-weight: 400;
-  letter-spacing: -0.075em;
-  line-height: 0.84;
-}
-
 .hero-statement {
   max-width: 700px;
   margin-bottom: 42px;
   font-family: var(--serif);
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 400;
   letter-spacing: -0.035em;
   line-height: 1.08;
 }
@@ -421,6 +416,16 @@ h1 {
   text-decoration-color: currentColor;
 }
 
+.software-section {
+  margin-top: 54px;
+  padding-top: 38px;
+  border-top: 1px solid var(--line);
+}
+
+.software-section .publication:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
 .publication-body > p {
   margin-bottom: 7px;
   color: var(--muted);
@@ -445,10 +450,6 @@ h1 {
   padding: 110px max(32px, calc((100vw - 1180px) / 2)) 120px;
   background: var(--teal);
   color: var(--paper);
-}
-
-.contact-section .eyebrow {
-  color: #f19b83;
 }
 
 .contact-section h2 {
@@ -494,7 +495,7 @@ footer p {
 
   .portrait-placeholder {
     width: min(200px, 56%);
-    grid-row: 1;
+    grid-row: 2;
     justify-self: start;
   }
 
@@ -511,6 +512,7 @@ footer p {
   .publication {
     grid-template-columns: 130px 1fr;
   }
+
 }
 
 @media (max-width: 620px) {
@@ -521,7 +523,8 @@ footer p {
   }
 
   .site-header {
-    height: 76px;
+    height: 52px;
+    padding-inline: 8px;
   }
 
   nav {
@@ -537,13 +540,8 @@ footer p {
   }
 
   .hero {
-    min-height: 0;
-    padding: 56px 0 72px;
+    padding: 40px 0 72px;
     gap: 46px;
-  }
-
-  h1 {
-    font-size: clamp(3.4rem, 17vw, 4.8rem);
   }
 
   .portrait-placeholder {
@@ -583,6 +581,16 @@ footer p {
   footer {
     align-items: flex-start;
     flex-direction: column;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-header {
+    padding-inline: 0;
+  }
+
+  nav {
+    gap: 12px;
   }
 }
 

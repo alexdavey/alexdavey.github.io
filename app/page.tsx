@@ -100,6 +100,18 @@ const publications = [
   },
 ];
 
+const researchSoftware = [
+  {
+    year: "2024",
+    field: "Software",
+    title: "Minari",
+    href: "https://doi.org/10.5281/zenodo.13767625",
+    authors:
+      "Omar G. Younis, Rodrigo Perez-Vicente, John U. Balis, Will Dudley, Alex Davey & Jordan K. Terry",
+    venue: "Zenodo · Version 0.5.0",
+  },
+];
+
 function highlightAuthor(authors: string) {
   return authors.split(/(Alex Davey)/).map((part, index) =>
     part === "Alex Davey" ? <strong key={`${part}-${index}`}>{part}</strong> : part,
@@ -111,7 +123,7 @@ export default function Home() {
     <main>
       <header className="site-header">
         <a className="wordmark" href="#top" aria-label="Alex Davey — home">
-          AD<span className="wordmark-dot">.</span>
+          Alex Davey<span className="wordmark-dot">.</span>
         </a>
         <nav aria-label="Primary navigation">
           <a href="#research">Research</a>
@@ -122,11 +134,10 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">Postdoctoral researcher · Machine learning</p>
-          <h1>Alex Davey</h1>
-          <p className="hero-statement">
+          <p className="eyebrow">Postdoctoral researcher / Starting research position · Machine learning</p>
+          <h1 className="hero-statement">
             Reinforcement learning for <em>adaptive, efficient</em> agents.
-          </p>
+          </h1>
           <div className="hero-bio">
             <p>
               I am a postdoctoral researcher in the{" "}
@@ -180,7 +191,6 @@ export default function Home() {
       <section className="publications-section" id="publications">
         <div className="section-heading publications-heading">
           <div>
-            <p className="eyebrow">Publications</p>
             <h2>Selected work</h2>
           </div>
           <p>
@@ -211,11 +221,41 @@ export default function Home() {
           ))}
         </div>
 
+        <section className="software-section" aria-labelledby="software-heading">
+          <div className="section-heading publications-heading">
+            <div>
+              <h2 id="software-heading">Software &amp; datasets</h2>
+            </div>
+            <p>Research software and dataset records.</p>
+          </div>
+
+          <div className="publication-list">
+            {researchSoftware.map((software) => (
+              <article className="publication" key={software.title}>
+                <div className="publication-meta">
+                  <span>{software.year}</span>
+                  <span>{software.field}</span>
+                </div>
+                <div className="publication-body">
+                  <h3>
+                    <a className="publication-title-link" href={software.href}>
+                      {software.title}
+                    </a>
+                  </h3>
+                  <p>{highlightAuthor(software.authors)}</p>
+                  <div className="publication-footer">
+                    <span>{software.venue}</span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
       </section>
 
       <section className="contact-section" id="contact">
-        <p className="eyebrow">Contact</p>
-        <h2>Questions, ideas, collaborations.</h2>
+        <h2>Contact</h2>
         <a
           className="email-link"
           href="mailto:{firstname}.{lastname}@inria.fr"

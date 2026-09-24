@@ -40,7 +40,12 @@ test("server-renders Alex Davey's academic site", async () => {
   );
   assert.match(html, /Gravity/);
   assert.match(html, /<strong>Alex Davey<\/strong>/);
-  assert.equal(html.match(/class="publication-title-link"/g)?.length, 9);
+  assert.equal(html.match(/class="publication-title-link"/g)?.length, 10);
+  assert.match(html, /Software &amp; datasets/);
+  assert.doesNotMatch(html, /Open Source Contributions|listed separately from publications|<p class="eyebrow">Publications<\/p>/);
+  assert.match(html, /Minari/);
+  assert.match(html, /https:\/\/doi\.org\/10\.5281\/zenodo\.13767625/);
+  assert.match(html, /Zenodo · Version 0\.5\.0/);
   for (const destination of [
     "https://arxiv.org/abs/2506.13862",
     "https://arxiv.org/abs/2506.13741",
@@ -58,7 +63,7 @@ test("server-renders Alex Davey's academic site", async () => {
     html.match(/>Email: \{firstname\}\.\{lastname\}@inria\.fr</g)?.length,
     2,
   );
-  assert.match(html, /<p class="eyebrow">Contact<\/p>/);
+  assert.match(html, /<h2>Contact<\/h2>/);
   assert.match(html, /<ul class="research-list">/);
   assert.doesNotMatch(
     html,
