@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Collect site files
-        run: mkdir _site && cp index.html jemdoc.css portrait.jpg _site/
+        run: mkdir _site && cp index.html jemdoc.css portrait.jpg phd-position.pdf _site/
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

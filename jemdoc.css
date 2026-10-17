@@ -145,6 +145,10 @@ div.infoblock p + p {
 	margin-top: 0.8em;
 }
 
+p.notice strong {
+	color: #CC1919;
+}
+
 /* Publication lists: shorter lines, more air, and authors/venue stepped down in tone under each title. */
 ul.pub-list li {
 	max-width: 52em;
