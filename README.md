@@ -3,23 +3,28 @@
 Personal academic website for Alex Davey, postdoctoral researcher at Inria TAU
 and Université Paris-Saclay.
 
-## Local development
+The site is three static files in the jemdoc style:
+
+- `index.html`: the page
+- `jemdoc.css`: the stylesheet
+- `portrait.jpg`: the profile photo
+
+To add a publication, copy an existing `<li>` block in `index.html` and edit it.
+
+## Local preview
+
+Open `index.html` in a browser, or serve the folder:
 
 ```bash
-npm install
-npm run dev
+python3 -m http.server 3000
 ```
 
 ## Deployment
 
-The app is configured as a static export for GitHub Pages. The workflow in
-`.github/workflows/deploy-pages.yml` builds the site and publishes
-`dist/client` whenever `main` is updated.
+The workflow in `.github/workflows/deploy-pages.yml` publishes the three files
+to GitHub Pages whenever `main` is updated. There is no build step.
 
-In the repository settings, set **Pages → Build and deployment → Source** to
-**GitHub Actions**. The generated site is available at:
+In the repository settings, **Pages → Build and deployment → Source** must be
+set to **GitHub Actions**. The site is available at:
 
 <https://alexdavey.github.io>
-
-The portrait and CV are intentionally represented by placeholders until the final
-assets are provided.
