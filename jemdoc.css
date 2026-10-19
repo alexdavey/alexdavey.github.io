@@ -3,7 +3,6 @@
 body {
 	background: white;
 	font-family: Georgia, serif;
-	padding-bottom: 8px;
 	margin: 0;
 }
 
@@ -192,9 +191,23 @@ td {
 	border: 1px solid gray;
 }
 
-table.imgtable, table.imgtable td {
-	border: none;
-	text-align: left;
+/* Intro: portrait floated left so the text wraps around and below it. */
+div.intro {
+	display: flow-root;
+}
+
+img.portrait {
+	float: left;
+	margin: 0.8em 1.2em 0.5em 0;
+}
+
+div.intro h1 {
+	margin-top: 0;
+}
+
+/* Each block sits wholly beside the portrait or wholly below it, never split across both. */
+div.intro h1, div.intro p {
+	display: flow-root;
 }
 
 /* Small-screen adjustment (not in the original jemdoc stylesheet). */
@@ -203,7 +216,8 @@ table.imgtable, table.imgtable td {
 		min-width: 0;
 	}
 
-	table.imgtable, table.imgtable tbody, table.imgtable tr, table.imgtable td {
+	img.portrait {
+		float: none;
 		display: block;
 	}
 }
